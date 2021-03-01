@@ -13,7 +13,8 @@ namespace ValheimNetworkFix
         [DllExport("DllMain")]
         public static void DllMain()
         {
-            var assembly = AppDomain.CurrentDomain.GetAssemblies().Where(x => x.FullName.Contains("assembly_valheim") == true).FirstOrDefault();
+            var assembly = AppDomain.CurrentDomain.GetAssemblies()
+                .Single(x => x.FullName.Contains("assembly_valheim") == true);
             //var assembly = Assembly.Load("assembly_valheim, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null");
 
             //var type = Type.GetType("ZDOMan");
