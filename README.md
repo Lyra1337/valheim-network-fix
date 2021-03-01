@@ -12,7 +12,9 @@ The program gets the current value and multiplies it by the factor 10 as suggest
 
 ## Injection
 
-I tried the .NET Approach with [this open source Injector](https://github.com/Lyra1337/DLL-Injection) but I still have not figured out how to call the DllMain-Method with it.
+I tried the .NET Approach with [this open source Injector](https://github.com/Lyra1337/DLL-Injection) but I still have not figured out how to call the DllMain-Method with it. Using [Xenos PE Injector](https://github.com/DarthTon/Xenos) with this settings worked fine for me:
+
+![Xenos Advanced Settings](https://github.com/lyra1337/valheim-network-fix/raw/master/pe-injector-settings.png "Xenos Advanced Settings")
 
 I am not aware of any kind of anti cheat in this game. But if the developer decides to add one, you'll get a ban when using this.
 
