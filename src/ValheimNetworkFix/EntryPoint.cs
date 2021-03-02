@@ -5,13 +5,14 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ValheimNetworkFix
 {
     public class EntryPoint
     {
-        [DllExport("DllMain")]
-        public static void DllMain()
+        [DllExport("Initialize")]
+        public static void Initialize()
         {
             var assembly = AppDomain.CurrentDomain.GetAssemblies()
                 .Single(x => x.FullName.Contains("assembly_valheim") == true);
@@ -27,7 +28,9 @@ namespace ValheimNetworkFix
             var value = (int)field.GetValue(instance);
             field.SetValue(instance, value * 10); // increase network limit by factor 10 (default 50kb/s to 500kb/s)
 
-            Debugger.Break();
+            //MessageBox.Show("done");
+
+            //Debugger.Break();
         }
     }
 }
