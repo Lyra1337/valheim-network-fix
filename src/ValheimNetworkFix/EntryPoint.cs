@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Threading;
 
 namespace ValheimNetworkFix
 {
@@ -14,7 +13,12 @@ namespace ValheimNetworkFix
         [DllExport("Initialize")]
         public static void Initialize()
         {
-            var assembly = AppDomain.CurrentDomain.GetAssemblies()
+            var assemblies = AppDomain.CurrentDomain.GetAssemblies();
+
+            AddLog("found assemblies:");
+            AddLog(String.Join(Environment.NewLine, assemblies.Select(x => x.FullName)));
+
+            var assembly = assemblies
                 .Single(x => x.FullName.Contains("assembly_valheim") == true);
             //var assembly = Assembly.Load("assembly_valheim, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null");
 
@@ -31,6 +35,11 @@ namespace ValheimNetworkFix
             //MessageBox.Show("done");
 
             //Debugger.Break();
+        }
+
+        private static void AddLog(string text)
+        {
+            File.AppendAllText(@"C:\Users\Lyra\Desktop\valheim_network.log", String.Concat(text, Environment.NewLine));
         }
     }
 }

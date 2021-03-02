@@ -44,6 +44,9 @@ class Program
             var result = injector.Inject(moduleFile.FullName);
             injector.CallFunction(moduleFile.FullName, "Initialize", 0);
         }
+
+        WriteColored("Press any key to exit...", ConsoleColor.Blue);
+        Console.ReadKey();
     }
 
     private static void WriteColored(string text, ConsoleColor color)
