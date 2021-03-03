@@ -12,12 +12,14 @@ The program gets the current value and multiplies it by the factor 10 as suggest
 
 ## Injection
 
-I tried the .NET Approach with [this open source Injector](https://github.com/Lyra1337/DLL-Injection) but I still have not figured out how to call the DllMain-Method with it. Using [Xenos PE Injector](https://github.com/DarthTon/Xenos) with this settings worked fine for me:
+I added a simple Injector Program using the [Reloaded.Injector](https://github.com/Reloaded-Project/Reloaded.Injector) Library.
 
-![Xenos Advanced Settings](https://github.com/lyra1337/valheim-network-fix/raw/master/pe-injector-settings.png "Xenos Advanced Settings")
-
-I am not aware of any kind of anti cheat in this game. But if the developer decides to add one, you'll get a ban when using this.
+After Injection the Initialize-Method will be called by the injector.
 
 ## Building
 
 Just clone this repo and open the solution in visual studio. It's current target .NET Framework is 4.5 but you could change that to whatever framework you have installed. The referenced helper NuGet package `DllExport` may prompt you to apply some patches to the project file. Select the only project file in the solution and press apply.
+
+## Disclaimer
+
+I am not aware of any kind of anti cheat in this game. But if the developer decides to add one, you'll get a ban when using this.
