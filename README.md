@@ -4,6 +4,8 @@
 
 This little injectable DLL should fix the network bandwidth issue in valheim. It's based on [this](https://windowsreport.com/valheim-lag-server/) dnSpy patch method. The server also needs to get this DLL injected or patched by the dnSpy approach.
 
+I'm currenty unable to build it using the correct mono runtime.
+
 ## Approach
 
 It uses reflection to find the loaded `assembly_valheim` in the current `AppDomain` and tries to set the private field `m_dataPerSec` in the singleton `TDOMan.instance`.
